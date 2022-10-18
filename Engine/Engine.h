@@ -39,6 +39,9 @@
 #include "Renderer/Font.h"
 #include "Renderer/Texture.h"
 #include "Renderer/Model.h"
+#include "Renderer/Shader.h"
+#include "Renderer/Program.h"
+#include "Renderer/Material.h"
 
 #include <memory>
 #include <vector>
