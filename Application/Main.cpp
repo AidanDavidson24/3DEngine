@@ -103,23 +103,6 @@ int main(int argc, char** argv)
 
 	LOG("Window created...");
 
-	// create vertex buffer
-	/*
-	GLuint pvbo = 0;
-	glGenBuffers(1, &pvbo);
-	glBindBuffer(GL_ARRAY_BUFFER, pvbo);
-	glBufferData(GL_ARRAY_BUFFER, 18 * sizeof(float), points, GL_STATIC_DRAW);
-
-	GLuint cvbo = 0;
-	glGenBuffers(1, &cvbo);
-	glBindBuffer(GL_ARRAY_BUFFER, cvbo);
-	glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(glm::vec3), colors, GL_STATIC_DRAW);
-
-	GLuint tvbo = 0;
-	glGenBuffers(1, &tvbo);
-	glBindBuffer(GL_ARRAY_BUFFER, tvbo);
-	glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(glm::vec2), texcoord, GL_STATIC_DRAW);
-	*/
 
 	GLuint vbo = 0;
 	glGenBuffers(1, &vbo);
@@ -127,41 +110,10 @@ int main(int argc, char** argv)
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
 
-	// create vertex array
-	/*
-	GLuint vao = 0;
-	glGenVertexArrays(1, &vao);
-	glBindVertexArray(vao);
-
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-
-
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
-
-	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
-
-	glEnableVertexAttribArray(2);
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-	*/
-	// create shader
-	//GLuint vs = glCreateShader(GL_VERTEX_SHADER);
-	//glShaderSource(vs, 1, &vertex_shader, NULL);
-	//glCompileShader(vs);
-	//GLuint fs = glCreateShader(GL_FRAGMENT_SHADER);
-	//glShaderSource(fs, 1, &fragment_shader, NULL);
-	//glCompileShader(fs);
-
 	// create program
 	std::shared_ptr<neu::Program> program = neu::g_resources.Get<neu::Program>("shaders/basic.prog");
 	program->Link();
 	program->Use();
-
-	// create Texture
-	//std::shared_ptr<neu::Texture> texture1 = neu::g_resources.Get<neu::Texture>("Textures/llama.jpg"); 
-	//std::shared_ptr<neu::Texture> texture2 = neu::g_resources.Get<neu::Texture>("Textures/wood.png"); 
-	//texture2->Bind();
 
 	std::shared_ptr<neu::VertexBuffer> vb = neu::g_resources.Get<neu::VertexBuffer>("box");
 	vb->CreateVertexBuffer(sizeof(vertices), 36, vertices);
