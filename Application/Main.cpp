@@ -8,7 +8,7 @@ float vertices[] = {
 	 0.5f,  0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f,
 	-0.5f,  0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f,
 	-0.5f, -0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
-
+	
 	-0.5f, -0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
 	 0.5f, -0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,
 	 0.5f,  0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f,
@@ -44,6 +44,7 @@ float vertices[] = {
 	-0.5f,  0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
 	-0.5f,  0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f
 };
+
 /*
 float points[] = {
   -0.5f, -0.5f,  0.5f,
@@ -132,7 +133,17 @@ int main(int argc, char** argv)
 	glm::mat4 projection = glm::perspective(45.0f, (float)neu::g_renderer.GetWidth() / neu::g_renderer.GetHeight(), 0.01f, 100.0f);
 
 	glm::vec3 cameraposition{ 0,0,2 };
+	std::vector<neu::Transform> transforms;
+	for (size_t i = 0; i < 100; i++)
+	{
+		glm::vec3 position(neu::randomf(-10.0f, 10.0f), neu::randomf(-10.0f, 10.0f), neu::randomf(-10.0f, 10.0f));
+		glm::vec3 rotation(neu::randomf(-10.0f, 10.0f), neu::randomf(-10.0f, 10.0f), neu::randomf(-10.0f, 10.0f));
+		glm::vec3 scale(1, 1, 1);
 
+		neu::Transform t(position, rotation, scale);
+		transforms.push_back(t);
+
+	}
 	bool quit = false;
 	while (!quit)
 	{
@@ -165,9 +176,18 @@ int main(int argc, char** argv)
 		material->GetProgram()->SetUniform("mvp", mvp);
 
 		neu::g_renderer.BeginFrame();
+		for(int i = 0; i < transforms.size(); i++)
+		{
+			// update transform rotation
+			glm::vec3 rotationchange(1, 1, 90);
+			transforms[i].rotation += rotationchange * neu::g_time.deltaTime;
+
+			// create mvp matrix
+			glm::mat4 mvp = projection * view * (glm::mat4)transforms[i];
+			material->GetProgram()->SetUniform("mvp", mvp );
 
 		vb->Draw();
-
+		}
 		neu::g_renderer.EndFrame();
 	}
 
