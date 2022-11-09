@@ -104,46 +104,9 @@ int main(int argc, char** argv)
 
 	LOG("Window created...");
 
+	// load scene 
+	auto scene = neu::g_resources.Get<neu::Scene>("Scenes/texture.scn");
 
-	GLuint vbo = 0;
-	glGenBuffers(1, &vbo);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-
-	// create program
-	std::shared_ptr<neu::Program> program = neu::g_resources.Get<neu::Program>("shaders/basic.prog");
-	program->Link();
-	program->Use();
-
-	std::shared_ptr<neu::VertexBuffer> vb = neu::g_resources.Get<neu::VertexBuffer>("box");
-	vb->CreateVertexBuffer(sizeof(vertices), 36, vertices);
-	vb->SetAttribute(0, 3, 8 * sizeof(float), 0);
-	vb->SetAttribute(1, 3, 8 * sizeof(float), 3 * sizeof(float));
-	vb->SetAttribute(2, 2, 8 * sizeof(float), 6 * sizeof(float));
-
-
-	// create material 
-	std::shared_ptr<neu::Material> material = neu::g_resources.Get<neu::Material>("materials/box.mtrl");
-	material->Bind();
-	material->GetProgram()->SetUniform("tint", glm::vec3{ 1, 0, 0 });
-	material->GetProgram()->SetUniform("scale", 0.5f);
-
-	glm::mat4 model{ 1 };
-	glm::mat4 projection = glm::perspective(45.0f, (float)neu::g_renderer.GetWidth() / neu::g_renderer.GetHeight(), 0.01f, 100.0f);
-
-	glm::vec3 cameraposition{ 0,0,2 };
-	std::vector<neu::Transform> transforms;
-	for (size_t i = 0; i < 100; i++)
-	{
-		glm::vec3 position(neu::randomf(-10.0f, 10.0f), neu::randomf(-10.0f, 10.0f), neu::randomf(-10.0f, 10.0f));
-		glm::vec3 rotation(neu::randomf(-10.0f, 10.0f), neu::randomf(-10.0f, 10.0f), neu::randomf(-10.0f, 10.0f));
-		glm::vec3 scale(1, 1, 1);
-
-		neu::Transform t(position, rotation, scale);
-		transforms.push_back(t);
-
-	}
 	bool quit = false;
 	while (!quit)
 	{
@@ -151,46 +114,33 @@ int main(int argc, char** argv)
 
 		if (neu::g_inputSystem.GetKeyState(neu::key_escape) == neu::InputSystem::KeyState::Pressed) quit = true;
 
-		if (neu::g_inputSystem.GetKeyState(neu::key_up) == neu::InputSystem::KeyState::Held)
+		auto actor = scene->GetActorFromName("Ogre");
+		if (actor)
 		{
-			cameraposition.y += 5 * neu::g_time.deltaTime;
-		}
-		if (neu::g_inputSystem.GetKeyState(neu::key_down) == neu::InputSystem::KeyState::Held)
-		{
-			cameraposition.y -= 5 * neu::g_time.deltaTime;
-		}
-		if (neu::g_inputSystem.GetKeyState(neu::key_left) == neu::InputSystem::KeyState::Held)
-		{
-			cameraposition.x -= 5 * neu::g_time.deltaTime;
-		}
-		if (neu::g_inputSystem.GetKeyState(neu::key_right) == neu::InputSystem::KeyState::Held)
-		{
-			cameraposition.x += 5 * neu::g_time.deltaTime;
+			//actor->m_transform.rotation.y += neu::g_time.deltaTime * 90.0f;
 		}
 
-		glm::mat4 view = glm::lookAt(cameraposition,cameraposition + glm::vec3{ 0,0,-1 }, glm::vec3{ 0,1,0 });
+		actor = scene->GetActorFromName("Light");
+		if (actor)
+		{
+			actor->m_transform.position.x = std::sin(neu::g_time.time) * 2.0f;
+		}
 
-		model = glm::eulerAngleXYX(0.0f, neu::g_time.time, 0.0f);
-		glm::mat4 mvp = projection * view * model;
+		auto material = neu::g_resources.Get<neu::Material>("Materials/ogre.mtrl");
+		if (material)
+		{
+			material->uv_offset.x + -neu::g_time.deltaTime;
+		}
 
-		material->GetProgram()->SetUniform("mvp", mvp);
+		scene->Update();
 
 		neu::g_renderer.BeginFrame();
-		for(int i = 0; i < transforms.size(); i++)
-		{
-			// update transform rotation
-			glm::vec3 rotationchange(1, 1, 90);
-			transforms[i].rotation += rotationchange * neu::g_time.deltaTime;
 
-			// create mvp matrix
-			glm::mat4 mvp = projection * view * (glm::mat4)transforms[i];
-			material->GetProgram()->SetUniform("mvp", mvp );
+		scene->Draw(neu::g_renderer);
 
-		vb->Draw();
-		}
 		neu::g_renderer.EndFrame();
 	}
-
+	scene->RemoveAll();
 	neu::Engine::Instance().Shutdown();
 	return 0;
 }

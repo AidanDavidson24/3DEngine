@@ -9,6 +9,7 @@ namespace neu
 	ResourceManager g_resources;
 	PhysicsSystem g_physicsSystem;
 	EventManager g_eventManager;
+	CameraController g_cameraController;
 
 	void Engine::Register()
 	{
@@ -24,6 +25,9 @@ namespace neu
 		REGISTER_CLASS(TextComponent);
 		REGISTER_CLASS(TilemapComponent);
 		REGISTER_CLASS(CameraComponent);
+		REGISTER_CLASS(CameraController);
+		REGISTER_CLASS(LightComponent);
+		
 	}
 
 	void Engine::Initialize()
@@ -43,6 +47,8 @@ namespace neu
 		g_physicsSystem.Update();
 		g_inputSystem.Update();
 		g_audioSystem.Update();
+
+
 	}
 
 	void Engine::Shutdown()

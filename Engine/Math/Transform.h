@@ -12,7 +12,12 @@ namespace neu
 		glm::vec3 rotation{ 0 };
 		glm::vec3 scale{ 1 };
 
+		glm::vec3 getRight() { return ((glm::mat4)(*this))[0]; }
+		glm::vec3 getUp() { return ((glm::mat4)(*this))[1]; }
+		glm::vec3 getForward() { return ((glm::mat4)(*this))[2]; }
+
 		glm::mat4 matrix;
+
 
 		Transform() = default;
 		Transform(const glm::vec3& position, const glm::vec3& rotation = glm::vec3{ 0 }, const glm::vec3& scale = glm::vec3{ 1 }) :

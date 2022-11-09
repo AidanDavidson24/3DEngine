@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{75172a10-4ac8-4754-bdf0-ef951cf76e38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Scenes">
+      <UniqueIdentifier>{e943b183-ef3f-41bb-b071-92cbe77c3a31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Materials">
+      <UniqueIdentifier>{0fbd7076-f0b5-4ec5-aa37-f7aa15267d61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Shaders">
+      <UniqueIdentifier>{3f84053c-82bc-4210-95b4-b514951fcd38}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -21,16 +33,73 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Build\Assets\Materials\box.mtrl">
-      <Filter>Resource Files</Filter>
+      <Filter>Assets\Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\ogre.mtrl">
+      <Filter>Assets\Materials</Filter>
     </None>
     <None Include="..\Build\Assets\Shaders\basic.frag">
-      <Filter>Resource Files</Filter>
+      <Filter>Assets\Shaders</Filter>
     </None>
     <None Include="..\Build\Assets\Shaders\basic.prog">
-      <Filter>Resource Files</Filter>
+      <Filter>Assets\Shaders</Filter>
     </None>
     <None Include="..\Build\Assets\Shaders\basic.vert">
-      <Filter>Resource Files</Filter>
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Scenes\basic.scn">
+      <Filter>Assets\Scenes</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basiclit.prog">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basiclit.vert">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basiclit.frag">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Scenes\basiclit.scn">
+      <Filter>Assets\Scenes</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basicphong.prog">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basicphong.vert">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basicphong.frag">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\lava.mtrl">
+      <Filter>Assets\Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Scenes\texture.scn">
+      <Filter>Assets\Scenes</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\multi.mtrl">
+      <Filter>Assets\Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\texturephong.frag">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\texturephong.prog">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\texturephong.vert">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\normalphong.prog">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\normalphong.vert">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\normalphong.frag">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\squirrel.mtrl">
+      <Filter>Assets\Materials</Filter>
     </None>
   </ItemGroup>
 </Project>

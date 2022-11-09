@@ -1,0 +1,10 @@
+{
+  "program": "shaders/normalphong.prog",
+  "textures": [ "textures/squirrel_diffuse.png", "textures/Squirrel_specular.png", "textures/Squirrel_normal.png" ],
+  "color": [
+    1,
+    1,
+    1
+  ],
+  "shininess": 256
+} 

@@ -1,0 +1,10 @@
+{
+    "program": "shaders/basiclit.prog",
+    "texture": "textures/lava.png",
+    "color": [
+      1,
+      1,
+      1
+    ],
+    "shininess": 100
+} 

@@ -76,7 +76,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\SDL2-2.0.22\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include;$(SolutionDir)ThirdParty\box2d\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\SDL2-2.0.22\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include;$(SolutionDir)ThirdParty\box2d\include</AdditionalIncludeDirectories>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -96,7 +96,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\SDL2-2.0.22\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include;$(SolutionDir)ThirdParty\box2d\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\SDL2-2.0.22\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include;$(SolutionDir)ThirdParty\box2d\include</AdditionalIncludeDirectories>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -116,7 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\SDL2-2.0.22\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include;$(SolutionDir)ThirdParty\box2d\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\SDL2-2.0.22\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include;$(SolutionDir)ThirdParty\box2d\include</AdditionalIncludeDirectories>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -136,7 +136,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\SDL2-2.0.22\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include;$(SolutionDir)ThirdParty\box2d\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\SDL2-2.0.22\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include;$(SolutionDir)ThirdParty\box2d\include</AdditionalIncludeDirectories>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -160,9 +160,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Build\Assets\Materials\box.mtrl" />
+    <None Include="..\Build\Assets\Materials\lava.mtrl" />
+    <None Include="..\Build\Assets\Materials\multi.mtrl" />
+    <None Include="..\Build\Assets\Materials\ogre.mtrl" />
+    <None Include="..\Build\Assets\Materials\squirrel.mtrl" />
+    <None Include="..\Build\Assets\Scenes\basic.scn" />
+    <None Include="..\Build\Assets\Scenes\basiclit.scn" />
+    <None Include="..\Build\Assets\Scenes\texture.scn" />
     <None Include="..\Build\Assets\Shaders\basic.frag" />
     <None Include="..\Build\Assets\Shaders\basic.prog" />
     <None Include="..\Build\Assets\Shaders\basic.vert" />
+    <None Include="..\Build\Assets\Shaders\basiclit.frag" />
+    <None Include="..\Build\Assets\Shaders\basiclit.prog" />
+    <None Include="..\Build\Assets\Shaders\basiclit.vert" />
+    <None Include="..\Build\Assets\Shaders\basicphong.frag" />
+    <None Include="..\Build\Assets\Shaders\basicphong.prog" />
+    <None Include="..\Build\Assets\Shaders\basicphong.vert" />
+    <None Include="..\Build\Assets\Shaders\normalphong.frag" />
+    <None Include="..\Build\Assets\Shaders\normalphong.prog" />
+    <None Include="..\Build\Assets\Shaders\normalphong.vert" />
+    <None Include="..\Build\Assets\Shaders\texturephong.frag" />
+    <None Include="..\Build\Assets\Shaders\texturephong.prog" />
+    <None Include="..\Build\Assets\Shaders\texturephong.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
