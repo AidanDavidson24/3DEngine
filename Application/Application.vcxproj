@@ -76,7 +76,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\SDL2-2.0.22\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include;$(SolutionDir)ThirdParty\box2d\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\SDL2-2.0.22\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include;$(SolutionDir)ThirdParty\box2d\include;$(SolutionDir)ThirdParty\imgui</AdditionalIncludeDirectories>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -96,7 +96,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\SDL2-2.0.22\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include;$(SolutionDir)ThirdParty\box2d\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\SDL2-2.0.22\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include;$(SolutionDir)ThirdParty\box2d\include;$(SolutionDir)ThirdParty\imgui</AdditionalIncludeDirectories>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -116,7 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\SDL2-2.0.22\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include;$(SolutionDir)ThirdParty\box2d\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\SDL2-2.0.22\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include;$(SolutionDir)ThirdParty\box2d\include;$(SolutionDir)ThirdParty\imgui</AdditionalIncludeDirectories>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -136,7 +136,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\SDL2-2.0.22\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include;$(SolutionDir)ThirdParty\box2d\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine;$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\SDL2-2.0.22\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\rapidjson\include;$(SolutionDir)ThirdParty\box2d\include;$(SolutionDir)ThirdParty\imgui</AdditionalIncludeDirectories>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -163,9 +163,12 @@
     <None Include="..\Build\Assets\Materials\lava.mtrl" />
     <None Include="..\Build\Assets\Materials\multi.mtrl" />
     <None Include="..\Build\Assets\Materials\ogre.mtrl" />
+    <None Include="..\Build\Assets\Materials\skybox.mtrl" />
     <None Include="..\Build\Assets\Materials\squirrel.mtrl" />
     <None Include="..\Build\Assets\Scenes\basic.scn" />
-    <None Include="..\Build\Assets\Scenes\basiclit.scn" />
+    <None Include="..\Build\Assets\Scenes\basicLit.scn" />
+    <None Include="..\Build\Assets\Scenes\cubemap.scn" />
+    <None Include="..\Build\Assets\Scenes\rtt.scn" />
     <None Include="..\Build\Assets\Scenes\texture.scn" />
     <None Include="..\Build\Assets\Shaders\basic.frag" />
     <None Include="..\Build\Assets\Shaders\basic.prog" />
@@ -176,12 +179,33 @@
     <None Include="..\Build\Assets\Shaders\basicphong.frag" />
     <None Include="..\Build\Assets\Shaders\basicphong.prog" />
     <None Include="..\Build\Assets\Shaders\basicphong.vert" />
-    <None Include="..\Build\Assets\Shaders\normalphong.frag" />
-    <None Include="..\Build\Assets\Shaders\normalphong.prog" />
-    <None Include="..\Build\Assets\Shaders\normalphong.vert" />
-    <None Include="..\Build\Assets\Shaders\texturephong.frag" />
-    <None Include="..\Build\Assets\Shaders\texturephong.prog" />
-    <None Include="..\Build\Assets\Shaders\texturephong.vert" />
+    <None Include="..\Build\Assets\Shaders\Fx\reflection.frag" />
+    <None Include="..\Build\Assets\Shaders\Fx\reflection.prog" />
+    <None Include="..\Build\Assets\Shaders\Fx\reflection.vert" />
+    <None Include="..\Build\Assets\Shaders\Fx\refrac.frag" />
+    <None Include="..\Build\Assets\Shaders\Fx\refrac.prog" />
+    <None Include="..\Build\Assets\Shaders\Fx\refrac.vert" />
+    <None Include="..\Build\Assets\Shaders\Fx\refraf.frag" />
+    <None Include="..\Build\Assets\Shaders\Fx\refraf.prog" />
+    <None Include="..\Build\Assets\Shaders\Fx\refraf.vert" />
+    <None Include="..\Build\Assets\Shaders\Fx\skybox.frag" />
+    <None Include="..\Build\Assets\Shaders\Fx\skybox.prog" />
+    <None Include="..\Build\Assets\Shaders\Fx\skybox.vert" />
+    <None Include="..\Build\Assets\Shaders\Fx\toon.frag" />
+    <None Include="..\Build\Assets\Shaders\Fx\toon.prog" />
+    <None Include="..\Build\Assets\Shaders\Fx\toon.vert" />
+    <None Include="..\Build\Assets\Shaders\Lit\texture.frag" />
+    <None Include="..\Build\Assets\Shaders\Lit\texture.prog" />
+    <None Include="..\Build\Assets\Shaders\Lit\texture.vert" />
+    <None Include="..\Build\Assets\Shaders\Lit\texturenormal.frag" />
+    <None Include="..\Build\Assets\Shaders\Lit\texturenormal.prog" />
+    <None Include="..\Build\Assets\Shaders\Lit\texturenormal.vert" />
+    <None Include="..\Build\Assets\Shaders\Unlit\color.frag" />
+    <None Include="..\Build\Assets\Shaders\Unlit\color.prog" />
+    <None Include="..\Build\Assets\Shaders\Unlit\color.vert" />
+    <None Include="..\Build\Assets\Shaders\Unlit\texture.frag" />
+    <None Include="..\Build\Assets\Shaders\Unlit\texture.prog" />
+    <None Include="..\Build\Assets\Shaders\Unlit\texture.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

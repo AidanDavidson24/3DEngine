@@ -1,5 +1,5 @@
 {
-  "program": "shaders/texturephong.prog",
+  "program": "shaders/unlit/texture.prog",
   "textures": [ "textures/ogre_diffuse.bmp", "textures/ogre_normal.bmp"],
   "color": [
     1,

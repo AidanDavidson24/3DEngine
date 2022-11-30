@@ -1,0 +1,7 @@
+{
+
+	"vertex_shader": "shaders/Fx/reflection.vert",
+
+	"fragment_shader": "shaders/Fx/reflection.frag"
+
+}

@@ -101,20 +101,24 @@ int main(int argc, char** argv)
 	neu::Engine::Instance().Register();
 
 	neu::g_renderer.CreateWindow("Neumont", 800, 600);
-
 	LOG("Window created...");
+	neu::g_gui.Initialize(neu::g_renderer);
 
 	// load scene 
-	auto scene = neu::g_resources.Get<neu::Scene>("Scenes/texture.scn");
+	auto scene = neu::g_resources.Get<neu::Scene>("Scenes/cubemap.scn");
 
+	float x = 0;
 	bool quit = false;
+	float interpolation = 1;
+	float refractionIndex = 1;
 	while (!quit)
 	{
 		neu::Engine::Instance().Update();
+		neu::g_gui.BeginFrame(neu::g_renderer);
 
 		if (neu::g_inputSystem.GetKeyState(neu::key_escape) == neu::InputSystem::KeyState::Pressed) quit = true;
 
-		auto actor = scene->GetActorFromName("Ogre");
+		auto actor = scene->GetActorFromName("Object");
 		if (actor)
 		{
 			//actor->m_transform.rotation.y += neu::g_time.deltaTime * 90.0f;
@@ -123,22 +127,39 @@ int main(int argc, char** argv)
 		actor = scene->GetActorFromName("Light");
 		if (actor)
 		{
-			actor->m_transform.position.x = std::sin(neu::g_time.time) * 2.0f;
+			actor->m_transform.position.x = x;
 		}
 
-		auto material = neu::g_resources.Get<neu::Material>("Materials/ogre.mtrl");
-		if (material)
-		{
-			material->uv_offset.x + -neu::g_time.deltaTime;
+		auto program1 = neu::g_resources.Get<neu::Program>("shaders/Fx/refrac.prog");
+
+		if (program1) {
+
+			program1->Use();
+
+			program1->SetUniform("i", interpolation);
+
+			program1->SetUniform("ri", refractionIndex);
+
 		}
+
+		ImGui::Begin("Hello");
+		ImGui::Button("Press Me");
+		ImGui::SliderFloat("x", &x, -4.0f, 4.0f);
+		ImGui::SliderFloat("Interpolation", &interpolation, 0.0f, 1.0f);
+		ImGui::SliderFloat("ri", &refractionIndex, 0.1f, 2.0f);
+		ImGui::End();
 
 		scene->Update();
 
 		neu::g_renderer.BeginFrame();
 
-		scene->Draw(neu::g_renderer);
+		scene->PreRender(neu::g_renderer);
+		scene->Render(neu::g_renderer);
+
+		neu::g_gui.Draw();
 
 		neu::g_renderer.EndFrame();
+		neu::g_gui.EndFrame();
 	}
 	scene->RemoveAll();
 	neu::Engine::Instance().Shutdown();

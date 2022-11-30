@@ -1,82 +1,213 @@
+
 {
+
   "actors": [
+
     {
+
       "type": "Actor",
-      "name": "Ogre",
+
+      "name": "Spot",
+
       "transform": {
+
         "position": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ],
-        "rotation": [
-          0,
-          180,
-          0
-        ]
-      },
-      "components": [
-        {
-          "type": "ModelComponent",
-          "model_name": "Models/ogre.obj",
-          "material_name": "Materials/lava.mtrl"
-        }
-      ]
-    },
-    {
-      "type": "Actor",
-      "name": "Light",
-      "transform": {
-        "position": [
-          2,
-          0,
+
+          0.6,
+
+          -0.45,
+
           2
 
+        ],
+
+        "scale": [
+
+          0.5,
+
+          0.5,
+
+          0.5
+
+        ],
+
+        "rotation": [
+
+          0,
+
+          180,
+
+          0
+
         ]
+
       },
+
       "components": [
+
         {
-          "type": "LightComponent",
-          "color": [
-            1.0,
-            1.0,
-            1.0
-          ]
+
+          "type": "ModelComponent",
+
+          "model_name": "models/spot.obj",
+
+          "material_name": "materials/cow.mtrl"
+
         }
+
       ]
+
     },
+
     {
+
       "type": "Actor",
-      "name": "Camera",
+
+      "name": "Scenery",
+
       "transform": {
+
         "position": [
+
+          -0.2,
+
+          -1,
+
+          0
+
+        ],
+
+        "scale": [
+
+          1,
+
+          1,
+
+          1
+
+        ],
+
+        "rotation": [
+
           0,
+
+          310,
+
+          0
+
+        ]
+
+      },
+
+      "components": [
+
+        {
+
+          "type": "ModelComponent",
+
+          "model_name": "models/Ogre.obj",
+
+          "material_name": "materials/scene.mtrl"
+
+        }
+
+      ]
+
+    },
+
+    {
+
+      "type": "Actor",
+
+      "name": "Light",
+
+      "transform": {
+
+        "position": [
+
+          2,
+
+          4,
+
+          3
+
+        ]
+
+      },
+
+      "components": [
+
+        {
+
+          "type": "LightComponent",
+
+          "color": [
+
+            1.0,
+
+            1.0,
+
+            1.0
+
+          ]
+
+        }
+
+      ]
+
+    },
+
+    {
+
+      "type": "Actor",
+
+      "name": "Camera",
+
+      "transform": {
+
+        "position": [
+
           0,
+
+          0,
+
           4
+
         ],
         "rotation": [
           0,
           180,
           0
         ]
+
       },
+
       "components": [
+
         {
+
           "type": "CameraComponent",
+
           "fov": 45,
+
           "near": 0.1,
+
           "far": 100
+
         },
+
         {
+
           "type": "CameraController",
+
           "speed": 4
+
         }
+
       ]
+
     }
-  ]
+
+  ] 
+
 } 

@@ -1,5 +1,5 @@
 {
-  "program": "shaders/normalphong.prog",
+  "program": "shaders/unlit/color.prog",
   "textures": [ "textures/squirrel_diffuse.png", "textures/Squirrel_specular.png", "textures/Squirrel_normal.png" ],
   "color": [
     1,

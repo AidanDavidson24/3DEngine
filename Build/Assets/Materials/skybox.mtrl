@@ -1,0 +1,11 @@
+{
+  "program": "shaders/fx/skybox.prog",
+  "cubemap": "textures/yokohama3/",
+  "cubemap_extension":  ".jpeg",
+  "color": [
+    1,
+    1,
+    1
+  ],
+  "shininess": 256
+} 

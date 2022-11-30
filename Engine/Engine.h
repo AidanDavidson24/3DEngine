@@ -2,6 +2,7 @@
 
 #include "Serialization/Json.h"
 #include "Renderer/Model.h"
+#include "Renderer/GUI.h"
 
 #include "Core/Memory.h"
 #include "Core/File.h"
@@ -46,6 +47,7 @@
 #include "Renderer/Program.h"
 #include "Renderer/Material.h"
 #include "Renderer/VertexBuffer.h"
+#include "Renderer/CubemapTexture.h"
 
 #include <memory>
 #include <vector>
@@ -61,6 +63,7 @@ namespace neu
 	extern ResourceManager g_resources;
 	extern PhysicsSystem g_physicsSystem;
 	extern EventManager g_eventManager;
+	extern GUI g_gui;
 	
 	class Engine : public Singleton<Engine>
 	{

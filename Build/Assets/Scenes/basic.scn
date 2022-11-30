@@ -1,55 +1,110 @@
-{
-  "actors": [
-    {
-      "type": "Actor",
-      "name": "Ogre",
-      "transform": {
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ],
-        "rotation": [
-          0,
-          180,
-          0
-        ]
-      },
-      "components": [
-        {
-          "type": "ModelComponent",
-          "model_name": "Models/squirrel.glb",
-          "material_name": "Materials/squirrel.mtrl"
-        }
-      ]
-    },
-    {
-      "type": "Actor",
-      "name": "Camera",
-      "transform": {
-        "position": [
-          0,
-          0,
-          -4
-        ]
-      },
-      "components": [
-        {
-          "type": "CameraComponent",
-          "fov": 45,
-          "near": 0.1,
-          "far": 100
-        },
-        {
-          "type": "CameraController",
-          "speed": 4
-        }
-      ]
-    }
-  ]
+
+{ 
+
+  "actors": [ 
+
+    { 
+
+      "type": "Actor", 
+
+      "name": "Spot", 
+
+      "transform": { 
+      
+      "position": [ 
+      
+      0, 
+      
+      0, 
+      
+      0 
+      
+      ], 
+      
+      "scale": [ 
+      
+      1, 
+      
+      1, 
+      
+      1 
+      
+      ], 
+      
+      "rotation": [ 
+      
+      0, 
+      
+      180, 
+      
+      0 
+      
+      ] 
+      
+      }, 
+      
+      "components": [ 
+      
+      { 
+      
+      "type": "ModelComponent", 
+      
+      "model_name": "models/spot.obj", 
+      
+      "material_name": "materials/cow.mtrl" 
+      
+      } 
+      
+      ] 
+    
+    }, 
+    
+    { 
+    
+    "type": "Actor", 
+    
+    "name": "Camera", 
+    
+    "transform": { 
+    
+    "position": [ 
+    
+    0,      
+    
+    0, 
+    
+    -4 
+    
+    ] 
+    
+    }, 
+    
+    "components": [ 
+    
+    { 
+    
+    "type": "CameraComponent", 
+    
+    "fov": 45, 
+    
+    "near": 0.1, 
+    
+    "far": 100 
+    
+    }, 
+    
+    { 
+    
+    "type": "CameraController", 
+    
+    "speed": 4 
+    
+    } 
+    
+    ] 
+    
+    } 
+  
+  ] 
+
 } 
