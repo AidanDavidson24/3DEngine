@@ -1,7 +1,7 @@
 {
   "program": "shaders/fx/skybox.prog",
   "cubemap": "textures/yokohama3/",
-  "cubemap_extension":  ".jpeg",
+  "cubemap_extension":  ".jpg",
   "color": [
     1,
     1,

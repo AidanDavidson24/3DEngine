@@ -1,0 +1,21 @@
+{
+
+  "program": "shaders/Fx/refrac.prog",
+
+  "cubemap": "textures/Yokohama3/",
+
+  "cubemap_extension": ".jpg",
+
+  "color": [
+
+    1,
+
+    1,
+
+    1
+
+  ],
+
+  "shininess": 32
+
+}

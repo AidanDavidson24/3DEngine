@@ -163,6 +163,11 @@
     <None Include="..\Build\Assets\Materials\lava.mtrl" />
     <None Include="..\Build\Assets\Materials\multi.mtrl" />
     <None Include="..\Build\Assets\Materials\ogre.mtrl" />
+    <None Include="..\Build\Assets\Materials\postprocess.mtrl" />
+    <None Include="..\Build\Assets\Materials\reflection.mtrl" />
+    <None Include="..\Build\Assets\Materials\refrac.mtrl" />
+    <None Include="..\Build\Assets\Materials\refraf.mtrl" />
+    <None Include="..\Build\Assets\Materials\RTT.mtrl" />
     <None Include="..\Build\Assets\Materials\skybox.mtrl" />
     <None Include="..\Build\Assets\Materials\squirrel.mtrl" />
     <None Include="..\Build\Assets\Scenes\basic.scn" />
@@ -200,6 +205,9 @@
     <None Include="..\Build\Assets\Shaders\Lit\texturenormal.frag" />
     <None Include="..\Build\Assets\Shaders\Lit\texturenormal.prog" />
     <None Include="..\Build\Assets\Shaders\Lit\texturenormal.vert" />
+    <None Include="..\Build\Assets\Shaders\PostProcess\postprocess.frag" />
+    <None Include="..\Build\Assets\Shaders\PostProcess\postprocess.prog" />
+    <None Include="..\Build\Assets\Shaders\PostProcess\postprocess.vert" />
     <None Include="..\Build\Assets\Shaders\Unlit\color.frag" />
     <None Include="..\Build\Assets\Shaders\Unlit\color.prog" />
     <None Include="..\Build\Assets\Shaders\Unlit\color.vert" />

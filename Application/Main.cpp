@@ -1,6 +1,8 @@
 ﻿#include "Engine.h" 
 #include <iostream> 
 
+#define POST_PROCESS
+
 float vertices[] = {
 	-0.5f, -0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
 	 0.5f, -0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,
@@ -8,7 +10,7 @@ float vertices[] = {
 	 0.5f,  0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f,
 	-0.5f,  0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f,
 	-0.5f, -0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
-	
+
 	-0.5f, -0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
 	 0.5f, -0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,
 	 0.5f,  0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f,
@@ -93,7 +95,7 @@ const char* fragment_shader =
 int main(int argc, char** argv)
 {
 	LOG("Application started...");
-	
+
 	neu::InitializeMemory();
 	neu::SetFilePath("../Assets");
 
@@ -150,7 +152,48 @@ int main(int argc, char** argv)
 		ImGui::End();
 
 		scene->Update();
+#ifdef POST_PROCESS 
+		// don't draw post process actor when rendering to the framebuffer 
+		{
+			auto actor = scene->GetActorFromName("PostProcess");
+			if (actor)
+			{
+				actor->SetActive(false);
+			}
+		}
+		// render pass 1 (render scene to framebuffer) 
+		neu::g_renderer.SetViewport(0, 0, framebuffer -> GetSize().x, framebuffer->GetSize().y);
+		framebuffer->Bind();
+		neu::g_renderer.BeginFrame();
+		scene->PreRender(neu::g_renderer);
+		scene->Render(neu::g_renderer);
+		framebuffer->Unbind();
 
+		// render pass 2 (render to screen) 
+		neu::g_renderer.RestoreViewport();
+		neu::g_renderer.BeginFrame();
+		scene->PreRender(neu::g_renderer);
+
+		// draw only the post process actor to the screen 
+		{
+			auto actor = scene->GetActorFromName("PostProcess");
+			if (actor)
+			{
+				actor->SetActive(true);
+				actor->Draw(neu::g_renderer);
+			}
+		}
+#else 
+		neu::g_renderer.BeginFrame();
+		scene->PreRender(neu::g_renderer);
+		scene->Render(neu::g_renderer);
+#endif // POST_PROCESS 
+
+		neu::g_gui.Draw();
+
+		neu::g_renderer.RestoreViewport();
+		neu::g_renderer.SetViewport(0, 0, framebuffer->GetSize().x, framebuffer->GetSize().y);
+		framebuffer->Bind();
 		neu::g_renderer.BeginFrame();
 
 		scene->PreRender(neu::g_renderer);

@@ -34,6 +34,9 @@
     <Filter Include="Assets\Shaders\Unlit">
       <UniqueIdentifier>{ecbc5f27-cf1f-436b-980e-46b8add1a227}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\Shaders\PostProcess">
+      <UniqueIdentifier>{3c8e582d-815d-4367-a250-5cb56c67d94e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -41,12 +44,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Build\Assets\Materials\box.mtrl">
-      <Filter>Assets\Materials</Filter>
-    </None>
-    <None Include="..\Build\Assets\Materials\ogre.mtrl">
-      <Filter>Assets\Materials</Filter>
-    </None>
     <None Include="..\Build\Assets\Shaders\basic.frag">
       <Filter>Assets\Shaders</Filter>
     </None>
@@ -73,15 +70,6 @@
     </None>
     <None Include="..\Build\Assets\Shaders\basicphong.frag">
       <Filter>Assets\Shaders</Filter>
-    </None>
-    <None Include="..\Build\Assets\Materials\lava.mtrl">
-      <Filter>Assets\Materials</Filter>
-    </None>
-    <None Include="..\Build\Assets\Materials\multi.mtrl">
-      <Filter>Assets\Materials</Filter>
-    </None>
-    <None Include="..\Build\Assets\Materials\squirrel.mtrl">
-      <Filter>Assets\Materials</Filter>
     </None>
     <None Include="..\Build\Assets\Shaders\Lit\texture.vert">
       <Filter>Assets\Shaders\Lit</Filter>
@@ -118,9 +106,6 @@
     </None>
     <None Include="..\Build\Assets\Shaders\Unlit\color.prog">
       <Filter>Assets\Shaders\Unlit</Filter>
-    </None>
-    <None Include="..\Build\Assets\Materials\skybox.mtrl">
-      <Filter>Assets\Materials</Filter>
     </None>
     <None Include="..\Build\Assets\Shaders\Fx\refrac.vert">
       <Filter>Assets\Shaders\FX</Filter>
@@ -181,6 +166,48 @@
     </None>
     <None Include="..\Build\Assets\Scenes\basic.scn">
       <Filter>Assets\Scenes</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\PostProcess\postprocess.prog">
+      <Filter>Assets\Shaders\PostProcess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\PostProcess\postprocess.vert">
+      <Filter>Assets\Shaders\PostProcess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\PostProcess\postprocess.frag">
+      <Filter>Assets\Shaders\PostProcess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\ogre.mtrl">
+      <Filter>Assets\Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\postprocess.mtrl">
+      <Filter>Assets\Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\reflection.mtrl">
+      <Filter>Assets\Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\refrac.mtrl">
+      <Filter>Assets\Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\refraf.mtrl">
+      <Filter>Assets\Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\RTT.mtrl">
+      <Filter>Assets\Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\skybox.mtrl">
+      <Filter>Assets\Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\squirrel.mtrl">
+      <Filter>Assets\Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\box.mtrl">
+      <Filter>Assets\Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\lava.mtrl">
+      <Filter>Assets\Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\multi.mtrl">
+      <Filter>Assets\Materials</Filter>
     </None>
   </ItemGroup>
 </Project>
